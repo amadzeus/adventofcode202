@@ -1,4 +1,4 @@
-csv_file = "input20256t"
+csv_file = "input20256"
 import time
 
 
@@ -20,12 +20,12 @@ def load_input_file(path):
                 # print(indeks)
                 # print(wartosc)
                 tabname=f"tabela{indeks}"
-                słownik_tabel[tabname]=[wartosc]
+                słownik_tabel[tabname]=[int(wartosc)]
 
                 # print(słownik_tabel)
             else:
                 tabname=f"tabela{indeks}"
-                słownik_tabel[tabname].append(wartosc)
+                słownik_tabel[tabname].append(int(wartosc))
 
                 # print(słownik_tabel[tabname])
         checktab = 1
@@ -33,17 +33,17 @@ def load_input_file(path):
     print(słownik_tabel)
     # print(słownik_tabel['tabela0'])
 
-    # for i in słownik_tabel.values():
-    #     print(i)
-    #     if i[-1]=='+':
-    #         print(sum(i[:-1]))
-    #         result+=sum(i[:-1])
-    #     if i[-1]=='*':
-    #         res=1
-    #         for k in i[:-1]:
-    #             res*=int(k)
-    #         result+=res
-    #         print(res)
-    # print(result)
+    for i in słownik_tabel.values():
+        print(i)
+        if i[-1]=='+':
+            print(sum(i[:-1]))
+            result+=sum(i[:-1])
+        if i[-1]=='*':
+            res=1
+            for k in i[:-1]:
+                res*=int(k)
+            result+=res
+            print(res)
+    print(result)
     print(time.perf_counter())
 load_input_file(csv_file)
